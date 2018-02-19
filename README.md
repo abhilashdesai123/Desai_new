@@ -5,4 +5,3 @@ Delete A Labour
 Static list of Crops
 Assign a lobour to crop
 Payment Option
-
