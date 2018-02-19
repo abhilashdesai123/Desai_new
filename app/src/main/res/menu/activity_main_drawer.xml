@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_first_layout"
+            android:icon="@drawable/ic_task"
+            android:title="Assign Task" />
+        <item
+            android:id="@+id/nav_second_layout"
+            android:icon="@drawable/ic_users"
+            android:title="Manage Employee" />
+        <item
+            android:id="@+id/nav_third_layout"
+            android:icon="@drawable/ic_users"
+            android:title="Payment" />
+
+
+
+    </group>
+
+    <item android:title="Settings">
+        <menu>
+            <item
+                android:id="@+id/nav_fourth_layout"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Manage Wage" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Summary" />
+        </menu>
+    </item>
+
+</menu>
