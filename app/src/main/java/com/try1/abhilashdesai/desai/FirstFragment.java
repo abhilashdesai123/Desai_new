@@ -24,12 +24,27 @@ public class FirstFragment extends Fragment{
         onion = (ImageView)myview.findViewById(R.id.on);
         potato = (ImageView)myview.findViewById(R.id.po);
         maize = (ImageView)myview.findViewById(R.id.mz);
+
+         potato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent j = new Intent(getActivity().getApplication(),potato_main.class);
+                startActivity(j);
+
+            }
+        });
         onion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity().getApplication(),onion_main.class);
                 startActivity(i);
+
+
+
             }
+
+
         });
         return myview;
     }

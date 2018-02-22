@@ -39,16 +39,16 @@ Button chk;
         final String da=s.toString();
 
         final SQLiteDatabase db2 = openOrCreateDatabase("myDB1", Context.MODE_PRIVATE, null);
-        db2.execSQL("CREATE TABLE IF NOT EXISTS works(date VARCHAR,naam VARCHAR,FOREIGN KEY(naam) REFERENCES employee(name));");
+        db2.execSQL("CREATE TABLE IF NOT EXISTS works(type VARCHAR, date VARCHAR,naam VARCHAR,FOREIGN KEY(naam) REFERENCES employee(name));");
         chk.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Cursor c=db2.rawQuery("SELECT * FROM works ", null);
+                Cursor c=db2.rawQuery("SELECT * FROM works where type like 'Onion'", null);
                 StringBuffer buffer=new StringBuffer();
                 while(c.moveToNext())
                 {
-                    buffer.append("Date: "+c.getString(0)+"\n");
-                    buffer.append("Name: "+c.getString(1)+"\n");
+                    buffer.append("Date: "+c.getString(1)+"\n");
+                    buffer.append("Name: "+c.getString(2)+"\n");
 
                 }
                 showMessage("Onion Workers", buffer.toString());
@@ -103,7 +103,7 @@ Button chk;
 
                         }
 
-                        db2.execSQL("INSERT INTO works VALUES('" + da + "','" + array[+position] + "' );");
+                        db2.execSQL("INSERT INTO works VALUES('Onion','" + da + "','" + array[+position] + "' );");
                         if(gend.equals("Male"))
                         { db2.execSQL("UPDATE employees SET bal=bal+400 WHERE name like '"+array[+position]+"';");}
                         else

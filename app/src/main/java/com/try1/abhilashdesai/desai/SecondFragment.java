@@ -1,10 +1,14 @@
 package com.try1.abhilashdesai.desai;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteCursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -58,6 +62,8 @@ public class SecondFragment extends Fragment {
 
         final View rootView = inflater.inflate(R.layout.second_layout,
                 container, false);
+
+
         del=(Button)rootView.findViewById(R.id.btndel) ;
         del.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +90,8 @@ public class SecondFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        1);
                  name = ed.getText().toString();
                 int selectedId = radioSexGroup.getCheckedRadioButtonId();
 // find the radiobutton by returned id
@@ -122,11 +130,19 @@ else{
                         db.execSQL("INSERT INTO employees (name, gender, pic) VALUES('" + name + "','" + gender + "','" + fpath +
                                 "');");
                         Toast.makeText(getContext(), "Employee added successfully !", Toast.LENGTH_SHORT).show();
+                        ed.setText("");
+                        FragmentTransaction ft = getFragmentManager().beginTransaction();
+                        ft.detach(SecondFragment.this).attach(SecondFragment.this).commit();
+
+
+
+
                     }
                     catch (Exception e)
                     {
                         Toast.makeText(getContext(),"Failed",Toast.LENGTH_LONG).show();
                     }
+
 
                 }
 
@@ -181,12 +197,12 @@ else{
 ///
                         imageView.setImageBitmap(bitmap);
                         falgf++;
-                        Toast.makeText(getContext(), " Picture", Toast.LENGTH_SHORT).show();
+                       // Toast.makeText(getContext(), " Picture", Toast.LENGTH_SHORT).show();
 
                         final Cursor cu = db.rawQuery("SELECT * FROM employee", null);
 
                         while (cu.moveToNext()) {
-                            Toast.makeText(getContext(),cu.getString(1),Toast.LENGTH_LONG).show();
+                           // Toast.makeText(getContext(),cu.getString(1),Toast.LENGTH_LONG).show();
 
                         }
 
@@ -197,7 +213,8 @@ else{
         }
         catch (Exception e)
         {
-            Toast.makeText(getContext(),"hi",Toast.LENGTH_LONG).show();
+           // Toast.makeText(getContext(),"hi",Toast.LENGTH_LONG).show();
         }
     }
+
 }

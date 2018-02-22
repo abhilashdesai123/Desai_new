@@ -33,7 +33,7 @@
 
             <RadioButton
                 android:id="@+id/radiomale"
-                android:layout_width="221dp"
+                android:layout_width="157dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:checked="true"
@@ -50,31 +50,31 @@
         <ImageView
             android:id="@+id/imgshow"
             android:layout_width="match_parent"
-            android:layout_height="288dp"
+            android:layout_height="208dp"
             app:srcCompat="@drawable/customer" />
 
         <Button
             android:id="@+id/btnpick"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:text="Modify Picture" />
 
         <Button
             android:id="@+id/badd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="34dp"
             android:text="Add" />
 
         <Button
             android:id="@+id/btndel"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
             android:layout_marginVertical="50dp"
             android:background="#FF1493"
-            android:textColor="#fff"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:baselineAligned="false"
-            android:textSize="18dp"
-            android:text="DELETE EMPLOYEE" />
+            android:text="DELETE EMPLOYEE"
+            android:textColor="#fff"
+            android:textSize="18dp" />
 
     </LinearLayout>
 
