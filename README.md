@@ -8,4 +8,4 @@ Overview
 2)Delete Labour
 3)Static list of Crops
 4)Assign a lobour to crop
-5)Payment Option
+5)Payment Option.
